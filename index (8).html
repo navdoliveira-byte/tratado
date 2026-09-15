@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light">
+<title>Tratado da Escassez e da Entrega</title>
+<style>
+  :root { color-scheme: light only; }
+  html { background: #ffffff !important; }
+</style>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital@0;1&display=swap');
+
+  :root {
+    --paper: #ffffff;
+    --paper-deep: #f7f7f5;
+    --ink: #2b241d;
+    --ink-soft: #6b6459;
+    --gold: #a9752f;
+    --gold-soft: #c99a5b;
+    --rule: #e5e0d6;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff !important;
+    color: var(--ink);
+    font-family: 'EB Garamond', Georgia, serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+    background-color: #ffffff !important;
+    z-index: 10;
+    border-bottom: 1px solid var(--rule);
+    padding: 22px 24px 16px;
+  }
+
+  .header-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  .lang-switch {
+    display: flex;
+    gap: 10px;
+    font-size: 0.95rem;
+  }
+
+  .lang-switch button {
+    background: none;
+    border: none;
+    color: var(--ink-soft);
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    cursor: pointer;
+    padding: 2px 4px;
+    border-bottom: 1px solid transparent;
+  }
+
+  .lang-switch button.active {
+    color: var(--gold);
+    border-bottom: 1px solid var(--gold);
+  }
+
+  .lang-switch .sep {
+    color: var(--rule);
+  }
+
+  main {
+    flex: 1;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+    width: 100%;
+    background-color: #ffffff !important;
+  }
+
+  .title-block {
+    margin-bottom: 56px;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 2.6rem;
+    line-height: 1.15;
+    margin: 0 0 8px;
+    color: var(--ink);
+  }
+
+  .subtitle {
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin: 0;
+  }
+
+  nav.index {
+    margin: 40px 0 60px;
+    padding: 28px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  nav.index .index-label {
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 0.16em;
+    font-size: 0.85rem;
+    color: var(--gold-soft);
+    margin-bottom: 18px;
+    display: block;
+  }
+
+  nav.index ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    columns: 1;
+  }
+
+  nav.index li {
+    margin-bottom: 10px;
+  }
+
+  nav.index a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 1.02rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  nav.index a:hover {
+    color: var(--gold);
+    border-bottom: 1px solid var(--gold-soft);
+  }
+
+  nav.index .num {
+    color: var(--ink-soft);
+    font-style: italic;
+    margin-right: 10px;
+  }
+
+  section.chapter {
+    margin-bottom: 64px;
+    scroll-margin-top: 96px;
+  }
+
+  section.chapter h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.55rem;
+    color: var(--gold);
+    margin: 0 0 24px;
+    line-height: 1.3;
+  }
+
+  section.chapter p {
+    font-size: 1.14rem;
+    line-height: 1.85;
+    color: var(--ink);
+    margin: 0 0 22px;
+    max-width: 62ch;
+  }
+
+  .divider {
+    text-align: center;
+    color: var(--gold-soft);
+    letter-spacing: 0.5em;
+    font-size: 0.8rem;
+    margin: 48px 0;
+  }
+
+  footer {
+    text-align: center;
+    padding: 32px 24px 48px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    background-color: #ffffff !important;
+  }
+
+  .back-top {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 2.1rem; }
+    section.chapter p { font-size: 1.06rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <button class="brand" onclick="window.scrollTo({top:0, behavior:'smooth'})">TRATADO DA ESCASSEZ E DA ENTREGA</button>
+    <div class="lang-switch">
+      <button id="btn-pt" class="active" onclick="setLang('pt')">PT</button>
+      <span class="sep">·</span>
+      <button id="btn-fr" onclick="setLang('fr')">FR</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="title-block">
+    <h1 data-pt="Tratado da Escassez e da Entrega" data-fr="Traité de la Rareté et de l'Abandon">Tratado da Escassez e da Entrega</h1>
+    <p class="subtitle" data-pt="Sobre o que se retém, o que se mede, e o que finalmente se concede" data-fr="Sur ce que l'on retient, ce que l'on mesure, et ce que l'on finit par concéder">Sobre o que se retém, o que se mede, e o que finalmente se concede</p>
+  </div>
+
+  <nav class="index">
+    <span class="index-label" data-pt="ÍNDICE" data-fr="SOMMAIRE">ÍNDICE</span>
+    <ol id="index-list"></ol>
+  </nav>
+
+  <div id="chapters"></div>
+
+  <a class="back-top" href="#" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;" data-pt="voltar ao topo" data-fr="retour en haut">voltar ao topo</a>
+</main>
+
+<footer data-pt="— fim —" data-fr="— fin —">— fim —</footer>
+
+<script>
+const chapters = [
+  {
+    pt: {
+      title: "I. Confiança como Economia de Escassez",
+      body: [
+        "Há uma escola de pensamento, pouco falada, que sustenta que a intimidade não é um estado, mas uma economia — regida por escassez, não por abundância. Quem aprendeu isso da forma mais dura tende a tratar cada aproximação como uma transação de alto risco, onde o preço de errar já foi pago antes, em moeda que não se esquece.",
+        "Não se trata de incapacidade de sentir. É precisamente o oposto: uma capacidade excessiva, refinada ao ponto de se tornar perigosa, e por isso mesmo, racionada. O que os outros leem como frieza é, na verdade, um sistema de contenção sofisticado — comportas erguidas não contra o sentimento, mas contra a velocidade com que ele historicamente trouxe consequências.",
+        "Toda economia de escassez opera sob uma lógica própria: o valor de algo não vem da abundância com que é oferecido, mas da precisão com que é escolhido. Por isso, quem vive assim não distribui atenção como quem distribui panfletos — mediria cada gesto de proximidade como quem sabe que aquele investimento não pode ser recuperado se o outro se revelar um mau lugar para depositá-lo. Isso não é cálculo frio. É memória funcionando como sistema de defesa, um arquivo interno de todas as vezes que a confiança foi extraída antes de ser conquistada.",
+        "E há algo revelador nesse mecanismo: ele não se desliga por vontade. Não adianta alguém dizer \"pode confiar em mim\" — a confiança que opera sob escassez não responde a promessas verbais, responde a padrões repetidos, a consistência observada ao longo do tempo, a ausência de sobressaltos. É um sistema que só se convence com evidência acumulada, nunca com declaração isolada.",
+        "E talvez seja essa a filosofia mais honesta sobre limite: não é uma parede contra o prazer, é a arquitetura que garante que o prazer, quando finalmente acontece, aconteça sobre uma fundação que não desaba no dia seguinte. Uma arquitetura que, paradoxalmente, não existe para impedir a entrada de ninguém — existe para que, quando alguém finalmente entrar, a estrutura aguente o peso do que vier depois."
+      ]
+    },
+    fr: {
+      title: "I. La Confiance Comme Économie de Rareté",
+      body: [
+        "Il existe une école de pensée, peu évoquée, selon laquelle l'intimité n'est pas un état, mais une économie — régie par la rareté, non par l'abondance. Qui a appris cela de la manière la plus dure tend à traiter chaque approche comme une transaction à haut risque, où le prix de l'erreur a déjà été payé auparavant, dans une monnaie qui ne s'oublie pas.",
+        "Il ne s'agit pas d'une incapacité à ressentir. C'est précisément l'inverse : une capacité excessive, affinée au point de devenir dangereuse, et pour cette raison même, rationnée. Ce que les autres lisent comme de la froideur est, en réalité, un système de retenue sophistiqué — des vannes érigées non contre le sentiment, mais contre la vitesse avec laquelle il a historiquement entraîné des conséquences.",
+        "Toute économie de rareté obéit à sa propre logique : la valeur d'une chose ne vient pas de l'abondance avec laquelle elle est offerte, mais de la précision avec laquelle elle est choisie. C'est pourquoi qui vit ainsi ne distribue pas l'attention comme on distribue des tracts — chaque geste de proximité serait mesuré, comme par quelqu'un qui sait que cet investissement ne pourra pas être récupéré si l'autre se révèle un mauvais endroit où le déposer. Ce n'est pas un calcul froid. C'est la mémoire fonctionnant comme système de défense, une archive interne de toutes les fois où la confiance a été extorquée avant d'être méritée.",
+        "Et il y a quelque chose de révélateur dans ce mécanisme : il ne se désactive pas sur simple volonté. Il ne sert à rien de dire \"tu peux me faire confiance\" — la confiance qui opère sous la rareté ne répond pas aux promesses verbales, elle répond à des schémas répétés, à une constance observée dans la durée, à l'absence de sursauts. C'est un système qui ne se convainc que par preuve accumulée, jamais par déclaration isolée.",
+        "Et c'est peut-être là la philosophie la plus honnête sur la limite : ce n'est pas un mur contre le plaisir, c'est l'architecture qui garantit que le plaisir, lorsqu'il arrive enfin, repose sur une fondation qui ne s'effondre pas le lendemain. Une architecture qui, paradoxalement, n'existe pas pour empêcher quiconque d'entrer — elle existe pour que, lorsque quelqu'un entre enfin, la structure supporte le poids de ce qui vient après."
+      ]
+    }
+  },
+  {
+    pt: {
+      title: "II. Desejo Versus Permissão",
+      body: [
+        "Existe uma diferença essencial, quase nunca reconhecida, entre desejo e permissão. O desejo é involuntário, quase animal, chega sem convite e sem aviso — ele não pede licença para instalar-se no corpo, para acelerar a respiração diante de uma mensagem, para fazer os pensamentos se desviarem no meio de uma tarefa qualquer em direção a alguém específico. O desejo simplesmente acontece, alheio à vontade, indiferente ao juízo que se faz dele.",
+        "A permissão, por outro lado, é um ato deliberado de vontade — uma cessão calculada de território que só se concede depois de uma auditoria silenciosa do outro: ele fica quando não há espetáculo? Ele entende o não-dito com a mesma seriedade que entenderia o dito? Ele se comporta da mesma forma na ausência de plateia? Essa auditoria não é feita em voz alta, nem em uma única conversa — ela se acumula em pequenos testes, quase imperceptíveis, espalhados ao longo de semanas: uma resposta demorada, um comentário fora de hora, uma reação a um silêncio prolongado.",
+        "Quem confunde as duas coisas costuma se decepcionar cedo, porque acredita que sentir desejo já é motivo suficiente para conceder acesso total. Mas o desejo, sozinho, nunca fabricou segurança — ele apenas assinala presença de interesse, nunca garante presença de caráter. Quem as distingue, aprende a esperar sem se apagar — permite que o desejo exista, plenamente, sem antecipar a permissão que ele ainda não conquistou — e a conceder sem se perder, entendendo que dizer sim, no tempo certo, não é fraqueza, é a prova mais alta de que a espera valeu."
+      ]
+    },
+    fr: {
+      title: "II. Désir Contre Permission",
+      body: [
+        "Il existe une différence essentielle, presque jamais reconnue, entre le désir et la permission. Le désir est involontaire, presque animal, il arrive sans invitation et sans préavis — il ne demande pas la permission de s'installer dans le corps, d'accélérer la respiration devant un message, de faire dévier les pensées au milieu d'une tâche quelconque vers quelqu'un de précis. Le désir se produit simplement, indifférent à la volonté, indifférent au jugement qu'on en fait.",
+        "La permission, en revanche, est un acte délibéré de volonté — une cession calculée de territoire qui ne s'accorde qu'après un audit silencieux de l'autre : reste-t-il quand il n'y a pas de spectacle ? Comprend-il le non-dit avec autant de sérieux que le dit ? Se comporte-t-il de la même façon en l'absence de public ? Cet audit ne se fait pas à voix haute, ni en une seule conversation — il s'accumule à travers de petits tests, presque imperceptibles, étalés sur des semaines : une réponse tardive, une remarque déplacée, une réaction à un silence prolongé.",
+        "Qui confond les deux choses a tendance à être déçu tôt, car il croit que ressentir du désir suffit déjà à justifier un accès total. Mais le désir, seul, n'a jamais fabriqué de sécurité — il ne signale qu'une présence d'intérêt, jamais une présence de caractère. Qui les distingue apprend à attendre sans s'effacer — laisse le désir exister, pleinement, sans anticiper la permission qu'il n'a pas encore méritée — et à accorder sans se perdre, comprenant que dire oui, au bon moment, n'est pas une faiblesse, c'est la preuve la plus haute que l'attente en valait la peine."
+      ]
+    }
+  },
+  {
+    pt: {
+      title: "III. Silêncio Como Linguagem",
+      body: [
+        "Há quem fale demais por medo do vazio, e há quem transforme o vazio em declaração. O silêncio, nesses casos, não é ausência — é a frase mais longa e mais precisa que existe. Ele não precisa de pontuação, nem de explicação posterior; ele se sustenta sozinho, como um território que se recusa a ser preenchido só porque alguém sente desconforto com o que não é dito.",
+        "Ele carrega peso porque não pede nada em troca. Não busca aprovação, não implora resposta, não se apressa em confirmar interpretações. Só espera para ver quem se inclina em direção a ele, tentando decifrar o que não foi dito, e nesse gesto — nesse inclinar-se — revela o quanto está disposto a investir sem garantia nenhuma. É nesse ponto que o silêncio se torna um teste involuntário: separa quem tem paciência para permanecer na incerteza de quem precisa, a qualquer custo, transformar tudo em certeza imediata.",
+        "Há também uma generosidade escondida no silêncio bem colocado: ele confia que o outro seja capaz de ler nas entrelinhas, de perceber que ausência de palavra não significa ausência de sentimento. É quase um convite disfarçado de distância — \"decifre-me, se for capaz, e eu saberei então que você presta atenção de verdade\". E quem decifra corretamente descobre que, por trás daquele silêncio, sempre havia algo dito, só que numa língua que exige presença real para ser ouvida."
+      ]
+    },
+    fr: {
+      title: "III. Le Silence Comme Langage",
+      body: [
+        "Certains parlent trop par peur du vide, et d'autres transforment le vide en déclaration. Le silence, dans ces cas-là, n'est pas absence — c'est la phrase la plus longue et la plus précise qui soit. Il n'a besoin ni de ponctuation, ni d'explication ultérieure ; il se soutient seul, comme un territoire qui refuse d'être comblé simplement parce que quelqu'un se sent mal à l'aise avec ce qui n'est pas dit.",
+        "Il porte du poids parce qu'il ne demande rien en retour. Il ne cherche pas l'approbation, ne mendie pas de réponse, ne se précipite pas pour confirmer des interprétations. Il attend seulement de voir qui se penche vers lui, tentant de déchiffrer ce qui n'a pas été dit, et dans ce geste — ce penchement — révèle à quel point il est prêt à investir sans aucune garantie. C'est à ce moment que le silence devient un test involontaire : il sépare qui a la patience de rester dans l'incertitude de qui a besoin, à tout prix, de tout transformer en certitude immédiate.",
+        "Il y a aussi une générosité cachée dans le silence bien placé : il fait confiance à l'autre pour être capable de lire entre les lignes, de percevoir que l'absence de mot ne signifie pas l'absence de sentiment. C'est presque une invitation déguisée en distance — \"déchiffre-moi, si tu en es capable, et je saurai alors que tu prêtes vraiment attention\". Et qui déchiffre correctement découvre que, derrière ce silence, il y avait toujours quelque chose de dit, seulement dans une langue qui exige une présence réelle pour être entendue."
+      ]
+    }
+  },
+  {
+    pt: {
+      title: "IV. O Paradoxo do Controle",
+      body: [
+        "Controle, nesse contexto, não é sobre dominar o outro. É sobre não se perder de si mesmo no processo de se abrir. Existe uma confusão comum entre controlar uma situação e controlar uma pessoa — a segunda é manipulação, a primeira é apenas autopreservação em ação. Quem exerce esse tipo de controle não está tentando ditar o comportamento alheio; está garantindo que, independentemente do que aconteça, ainda restará alguém inteiro do outro lado da experiência.",
+        "Paradoxalmente, é esse mesmo controle que torna a eventual entrega mais significativa — porque nada ali foi automático, foi tudo escolhido, deliberado, e portanto, real. Uma entrega irrefletida, motivada apenas pelo calor do momento, carrega o risco de ser esquecida com a mesma rapidez com que aconteceu. Já uma entrega que atravessou o filtro do controle, que sobreviveu à pausa reflexiva antes de se consumar, carrega peso duradouro — porque foi vontade pura, sem coação de circunstância.",
+        "O verdadeiro poder de sedução não está em quem se oferece primeiro, mas em quem consegue permanecer inteiro enquanto decide, aos poucos, o quanto vai deixar o outro ver. Há algo magnético em observar alguém que não se desmancha ao primeiro sinal de atenção — que mantém a espinha ereta mesmo diante do próprio desejo, e que, exatamente por isso, quando finalmente relaxa essa postura, transforma o gesto em presente, não em capitulação."
+      ]
+    },
+    fr: {
+      title: "IV. Le Paradoxe du Contrôle",
+      body: [
+        "Le contrôle, dans ce contexte, ne consiste pas à dominer l'autre. Il s'agit de ne pas se perdre soi-même dans le processus de s'ouvrir. Il existe une confusion courante entre contrôler une situation et contrôler une personne — la seconde est de la manipulation, la première n'est que de l'autopréservation en action. Qui exerce ce type de contrôle n'essaie pas de dicter le comportement d'autrui ; il s'assure que, quoi qu'il arrive, il restera quelqu'un d'entier de l'autre côté de l'expérience.",
+        "Paradoxalement, c'est ce même contrôle qui rend l'abandon éventuel plus significatif — car rien là n'était automatique, tout était choisi, délibéré, et donc réel. Un abandon irréfléchi, motivé seulement par la chaleur du moment, court le risque d'être oublié aussi vite qu'il est arrivé. Un abandon qui a traversé le filtre du contrôle, qui a survécu à la pause réflexive avant de se consommer, porte un poids durable — car c'était une volonté pure, sans contrainte de circonstance.",
+        "Le véritable pouvoir de séduction ne réside pas chez qui s'offre en premier, mais chez qui parvient à rester entier tout en décidant, peu à peu, de combien il va laisser voir à l'autre. Il y a quelque chose de magnétique à observer quelqu'un qui ne se défait pas au premier signe d'attention — qui garde le dos droit même face à son propre désir, et qui, précisément pour cela, lorsqu'il relâche enfin cette posture, transforme le geste en cadeau, non en capitulation."
+      ]
+    }
+  },
+  {
+    pt: {
+      title: "V. A Arquitetura dos Limites",
+      body: [
+        "Um limite bem construído não afasta — filtra. Ele não diz \"não chegue perto\", diz \"chegue perto do jeito certo\". É uma arquitetura, não uma barreira: tem portas, só que elas não se abrem no primeiro toque, nem respondem a insistência — respondem apenas a paciência genuína e a comportamento consistente ao longo do tempo.",
+        "Quem projeta essa arquitetura não o faz por capricho, mas por experiência: sabe que espaços totalmente abertos são invadidos por qualquer um, inclusive por quem não tem intenção de cuidar do que encontra lá dentro. Por isso, os limites funcionam como um sistema de curadoria — não para excluir por exclusão, mas para garantir que quem entra, entra por merecimento e não por acaso.",
+        "Quem aprende a respeitar essa arquitetura descobre algo curioso: o espaço que antes parecia fechado era, na verdade, generoso — só não se entregava a qualquer um que batesse. E há uma satisfação particular reservada para quem finalmente atravessa todas as portas certas, na ordem certa: a sensação de ter sido escolhido, não apenas admitido."
+      ]
+    },
+    fr: {
+      title: "V. L'Architecture des Limites",
+      body: [
+        "Une limite bien construite n'éloigne pas — elle filtre. Elle ne dit pas \"ne t'approche pas\", elle dit \"approche-toi de la bonne manière\". C'est une architecture, non une barrière : elle a des portes, seulement elles ne s'ouvrent pas au premier contact, ni ne répondent à l'insistance — elles ne répondent qu'à une patience véritable et à un comportement constant dans la durée.",
+        "Qui conçoit cette architecture ne le fait pas par caprice, mais par expérience : il sait que les espaces totalement ouverts sont envahis par n'importe qui, y compris par ceux qui n'ont aucune intention de prendre soin de ce qu'ils y trouvent. C'est pourquoi les limites fonctionnent comme un système de curation — non pour exclure par exclusion, mais pour garantir que qui entre, entre par mérite et non par hasard.",
+        "Qui apprend à respecter cette architecture découvre quelque chose de curieux : l'espace qui semblait fermé auparavant était, en réalité, généreux — il ne se donnait simplement pas à n'importe qui frappait. Et il existe une satisfaction particulière réservée à qui traverse enfin toutes les bonnes portes, dans le bon ordre : la sensation d'avoir été choisi, non simplement admis."
+      ]
+    }
+  },
+  {
+    pt: {
+      title: "VI. Intensidade Contida",
+      body: [
+        "Existe uma crença equivocada de que intensidade precisa ser ruidosa. Mas a intensidade mais perigosa é a contida — aquela que se movimenta por baixo da superfície, quieta, e que só se revela em lampejos: um olhar que dura um segundo a mais do que deveria, uma frase que carrega dez significados dentro de cinco palavras, uma mão que hesita meio centímetro antes de tocar, e nessa hesitação diz mais do que o toque em si diria.",
+        "Quem sente assim não sente menos. Sente em outra frequência, uma que exige do outro atenção verdadeira para ser captada — e é justamente essa exigência que filtra quem está realmente presente de quem só está fisicamente ali. A intensidade contida não grita porque não precisa: ela confia que quem for suficientemente atento vai perceber o volume real por trás do silêncio aparente.",
+        "Há também algo de generoso nesse tipo de intensidade: ela poupa o outro do exagero, da performance, da necessidade de provar. Em vez disso, oferece um convite mais sutil e mais raro — o de aprender a ler nas entrelinhas de alguém que nunca vai facilitar demais, mas que, quando finalmente se revela por completo, revela-se com uma força multiplicada por todo o tempo que ficou contida."
+      ]
+    },
+    fr: {
+      title: "VI. L'Intensité Contenue",
+      body: [
+        "Il existe une croyance erronée selon laquelle l'intensité doit être bruyante. Mais l'intensité la plus dangereuse est celle qui est contenue — celle qui se déplace sous la surface, silencieuse, et qui ne se révèle qu'en éclairs : un regard qui dure une seconde de plus qu'il ne devrait, une phrase qui porte dix significations en cinq mots, une main qui hésite un demi-centimètre avant de toucher, et dans cette hésitation en dit plus que le toucher lui-même n'en dirait.",
+        "Qui ressent ainsi ne ressent pas moins. Il ressent sur une autre fréquence, une qui exige de l'autre une attention véritable pour être captée — et c'est précisément cette exigence qui filtre qui est réellement présent de qui n'est que physiquement là. L'intensité contenue ne crie pas parce qu'elle n'en a pas besoin : elle sait que celui qui est suffisamment attentif percevra le volume réel derrière le silence apparent.",
+        "Il y a aussi quelque chose de généreux dans ce type d'intensité : elle épargne à l'autre l'exagération, la performance, le besoin de prouver. Elle offre à la place une invitation plus subtile et plus rare — celle d'apprendre à lire entre les lignes de quelqu'un qui ne facilitera jamais trop les choses, mais qui, lorsqu'il se révèle enfin complètement, se révèle avec une force multipliée par tout le temps qu'il est resté contenu."
+      ]
+    }
+  },
+  {
+    pt: {
+      title: "VII. A Distância Como Filtro, Não Como Fuga",
+      body: [
+        "Manter distância nem sempre é fugir. Às vezes é a única forma de observar com clareza quem está do outro lado — sem a pressa que embaça o julgamento, sem a proximidade que confunde intensidade com verdade. A distância, usada com intenção, funciona como uma lente que corrige a miopia emocional que costuma acompanhar o início de qualquer atração forte.",
+        "Há algo profundamente estratégico, e ao mesmo tempo protetor, em recusar-se a mergulhar de cabeça só porque a química inicial é inegável. A química explica a atração, mas não garante a permanência — e é justamente esse intervalo entre atração e permanência que a distância ajuda a mapear. Ela cria o espaço necessário para observar: essa pessoa se mantém interessada mesmo sem estímulo constante? Ela investe tempo, ou só investe entusiasmo passageiro?",
+        "A distância bem usada não afasta o que é real. Só afasta o que não teria sobrevivido à espera de qualquer forma — e, ao fazer isso, poupa quem a pratica de investir energia emocional em algo que se dissolveria de qualquer jeito, só que mais tarde e com custo maior."
+      ]
+    },
+    fr: {
+      title: "VII. La Distance Comme Filtre, Non Comme Fuite",
+      body: [
+        "Garder ses distances n'est pas toujours fuir. Parfois c'est la seule façon d'observer clairement qui se trouve de l'autre côté — sans la précipitation qui trouble le jugement, sans la proximité qui confond intensité et vérité. La distance, utilisée avec intention, fonctionne comme une lentille qui corrige la myopie émotionnelle qui accompagne souvent le début de toute forte attraction.",
+        "Il y a quelque chose de profondément stratégique, et en même temps protecteur, à refuser de se jeter tête baissée simplement parce que la chimie initiale est indéniable. La chimie explique l'attraction, mais ne garantit pas la permanence — et c'est précisément cet intervalle entre attraction et permanence que la distance aide à cartographier. Elle crée l'espace nécessaire pour observer : cette personne reste-t-elle intéressée même sans stimulation constante ? Investit-elle du temps, ou seulement un enthousiasme passager ?",
+        "La distance bien utilisée n'éloigne pas ce qui est réel. Elle n'éloigne que ce qui n'aurait pas survécu à l'attente de toute façon — et, ce faisant, elle épargne à celui qui la pratique d'investir de l'énergie émotionnelle dans quelque chose qui se serait dissous de toute manière, seulement plus tard et à un coût plus élevé."
+      ]
+    }
+  },
+  {
+    pt: {
+      title: "VIII. O Momento Exato da Entrega",
+      body: [
+        "Toda entrega tem um instante exato, e ele nunca é imposto de fora — é reconhecido de dentro. É o momento em que o cálculo cessa, em que a auditoria silenciosa finalmente aprova, e o corpo decide antes mesmo que a mente termine de concordar. Até ali, cada gesto de aproximação era medido. Mas há um ponto em que essa vigilância deixa de fazer sentido, porque a evidência acumulada já respondeu a todas as perguntas que a desconfiança fazia — e o que resta, então, é apenas: isto é real, e há abertura total para o que vem a seguir.",
+        "O início é quase uma pergunta feita sem palavras. Um ritmo mais lento, testando, como quem pergunta \"está bem assim?\" sem precisar dizer em voz alta. E a resposta também não precisa de palavra — está na respiração que se aprofunda, no corpo que se aproxima em vez de recuar, num gesto pequeno de confirmação que qualquer pessoa atenta o suficiente sabe reconhecer.",
+        "A pergunta, uma vez respondida, dá lugar a algo mais confiante. O ritmo já não testa — afirma. Porque o corpo não sabe mentir do jeito que as palavras às vezes sabem: quando a resposta é verdadeira, ela se mostra sozinha, sem cálculo, sem atuação. E é isso que transforma hesitação inicial em certeza mútua — a confirmação vem do próprio corpo, não de uma frase dita.",
+        "Há uma sincronia que se instala sem combinado prévio, como se dois ritmos aprendessem, na prática, a se encontrar — um cede quando o outro avança, um acompanha quando o outro desacelera, como uma conversa sem som, feita só de resposta e presença. E os olhos, nesse ponto, se recusam a fechar. Existe um tipo de encontro em que fechar os olhos seria mais fácil, mas também mais distante — e esse não é desse tipo. Aqui, é preciso ver: o rosto do outro, o quanto ele está ali de verdade, presente e não apenas fisicamente perto.",
+        "Um nome é dito, em algum momento, baixo, quase sem querer — e carrega mais peso do que qualquer outra palavra dita antes. Não é chamado por hábito. É reconhecimento: de que é essa pessoa, especificamente, que importa naquele instante, e não outra qualquer.",
+        "E há, no fim de tudo isso, um ponto sem volta — onde o corpo inteiro já não está mais calculando nada, onde a mente solta as últimas amarras que ainda segurava, e o que resta é só presença total, sem defesa, sem personagem. É o ápice de tudo que foi construído devagar, capítulo após capítulo, decisão após decisão: a prova final de que a espera, afinal, tinha um propósito — e que ele valeu cada segundo."
+      ]
+    },
+    fr: {
+      title: "VIII. L'Instant Exact de l'Abandon",
+      body: [
+        "Tout abandon a un instant exact, et il n'est jamais imposé de l'extérieur — il est reconnu de l'intérieur. C'est le moment où le calcul cesse, où l'audit silencieux approuve enfin, et où le corps décide avant même que l'esprit ne finisse d'être d'accord. Jusque-là, chaque geste d'approche était mesuré. Mais il y a un point où cette vigilance cesse d'avoir un sens, car la preuve accumulée a déjà répondu à toutes les questions que posait la méfiance — et ce qui reste, alors, c'est simplement : ceci est réel, et il y a une ouverture totale pour ce qui vient ensuite.",
+        "Le début est presque une question posée sans mots. Un rythme plus lent, qui teste, comme quelqu'un qui demande \"c'est bien comme ça ?\" sans avoir besoin de le dire à voix haute. Et la réponse non plus n'a pas besoin de mots — elle est dans la respiration qui s'approfondit, dans le corps qui se rapproche au lieu de reculer, dans un petit geste de confirmation que quiconque suffisamment attentif sait reconnaître.",
+        "La question, une fois répondue, laisse place à quelque chose de plus assuré. Le rythme ne teste plus — il affirme. Parce que le corps ne sait pas mentir comme les mots savent parfois le faire : quand la réponse est vraie, elle se montre seule, sans calcul, sans jeu. Et c'est cela qui transforme l'hésitation initiale en certitude mutuelle — la confirmation vient du corps lui-même, pas d'une phrase prononcée.",
+        "Une synchronie s'installe sans accord préalable, comme si deux rythmes apprenaient, en pratique, à se rencontrer — l'un cède quand l'autre avance, l'un accompagne quand l'autre ralentit, comme une conversation sans son, faite seulement de réponse et de présence. Et les yeux, à ce moment, refusent de se fermer. Il existe un type de rencontre où fermer les yeux serait plus facile, mais aussi plus distant — et celle-ci n'est pas de ce genre. Ici, il faut voir : le visage de l'autre, à quel point il est vraiment là, présent et pas seulement physiquement proche.",
+        "Un nom est prononcé, à un moment donné, bas, presque malgré soi — et il porte plus de poids que n'importe quel autre mot dit avant. Il n'est pas prononcé par habitude. C'est une reconnaissance : que c'est cette personne, précisément, qui compte en cet instant, et aucune autre.",
+        "Et il y a, à la fin de tout cela, un point sans retour — où le corps entier ne calcule plus rien, où l'esprit lâche les dernières amarres qu'il tenait encore, et où ce qui reste n'est que présence totale, sans défense, sans personnage. C'est l'apogée de tout ce qui a été construit lentement, chapitre après chapitre, décision après décision : la preuve finale que l'attente, après tout, avait un but — et qu'elle valait chaque seconde."
+      ]
+    }
+  },
+  {
+    pt: {
+      title: "IX. Vulnerabilidade Como Poder, Não Como Fraqueza",
+      body: [
+        "Existe um mito antigo e mal contado de que se abrir é se enfraquecer. É o oposto: expor-se, de olhos abertos e com plena consciência dos riscos, é o ato mais deliberado de força que existe. Fraqueza é reagir sem escolha, ser arrastado por uma emoção sem ter examinado o terreno. Vulnerabilidade é escolher, mesmo sabendo que poderia não escolher, mesmo sabendo exatamente quanto custaria se a escolha se revelasse errada.",
+        "Há uma diferença sutil, mas decisiva, entre quem se abre por impulso e quem se abre por decisão: o primeiro se arrepende quando as coisas dão errado, porque nunca avaliou o risco. O segundo, mesmo que as coisas deem errado, mantém a dignidade da escolha — porque sabia exatamente o que estava em jogo e decidiu correr o risco mesmo assim. Essa diferença é o que separa arrependimento de aceitação.",
+        "Por isso, quando alguém finalmente se entrega depois de tanta cautela, não é queda — é decisão. E decisões, ao contrário de quedas, carregam dignidade. Carregam também um tipo de coragem que raramente é reconhecida como tal, porque não parece heroica, parece só quieta — mas é, no fundo, um dos atos mais corajosos que existem: escolher ser visto por inteiro, sabendo que ser visto por inteiro é também estar exposto por inteiro."
+      ]
+    },
+    fr: {
+      title: "IX. La Vulnérabilité Comme Pouvoir, Non Comme Faiblesse",
+      body: [
+        "Il existe un mythe ancien et mal raconté selon lequel s'ouvrir c'est s'affaiblir. C'est l'inverse : s'exposer, les yeux ouverts et pleinement conscient des risques, est l'acte le plus délibéré de force qui existe. La faiblesse, c'est réagir sans choix, être entraîné par une émotion sans avoir examiné le terrain. La vulnérabilité, c'est choisir, même en sachant qu'on pourrait ne pas choisir, même en sachant exactement combien cela coûterait si le choix se révélait erroné.",
+        "Il y a une différence subtile, mais décisive, entre qui s'ouvre par impulsion et qui s'ouvre par décision : le premier regrette quand les choses tournent mal, parce qu'il n'a jamais évalué le risque. Le second, même si les choses tournent mal, garde la dignité du choix — parce qu'il savait exactement ce qui était en jeu et a décidé de prendre le risque quand même. Cette différence est ce qui sépare le regret de l'acceptation.",
+        "C'est pourquoi, quand quelqu'un s'abandonne enfin après tant de prudence, ce n'est pas une chute — c'est une décision. Et les décisions, contrairement aux chutes, portent en elles la dignité. Elles portent aussi un type de courage rarement reconnu comme tel, parce qu'il ne semble pas héroïque, il semble simplement discret — mais c'est, au fond, l'un des actes les plus courageux qui soient : choisir d'être vu en entier, sachant qu'être vu en entier c'est aussi être exposé en entier."
+      ]
+    }
+  },
+  {
+    pt: {
+      title: "X. O Que Resta Depois da Certeza",
+      body: [
+        "Depois que a dúvida se dissolve, não resta euforia — resta algo mais quieto e mais duradouro: a certeza tranquila de que valeu a pena esperar. Não porque a espera tenha sido fácil, mas porque o que veio depois dela não teria a mesma textura se tivesse chegado antes do tempo. Há uma diferença perceptível entre algo conquistado com paciência e algo obtido por impulso — o primeiro carrega camadas, história, prova; o segundo carrega apenas o instante em que aconteceu.",
+        "É curioso perceber que, uma vez que a certeza se instala, ela não precisa mais ser reafirmada a cada momento. Ela simplesmente existe, como um fundo estável sobre o qual tudo o mais pode se apoiar sem medo de desabar. É essa estabilidade, mais do que qualquer euforia inicial, que sustenta o que vem depois — as conversas triviais, os silêncios confortáveis, os dias comuns que, de repente, deixam de precisar de intensidade para serem significativos.",
+        "É esse o segredo final, pouco dito: o que se conquista devagar carrega um peso que o instantâneo nunca vai ter. E é esse peso, no fim, que se lembra — muito depois de a pressa de tudo mais ter sido esquecida. Porque tudo que chega rápido também costuma sair rápido, mas o que é construído com cuidado deixa raízes — e são essas raízes, não os fogos de artifício do começo, que sustentam o que realmente dura."
+      ]
+    },
+    fr: {
+      title: "X. Ce Qui Reste Après la Certitude",
+      body: [
+        "Une fois que le doute se dissout, il ne reste pas d'euphorie — il reste quelque chose de plus calme et de plus durable : la certitude tranquille que l'attente en valait la peine. Non parce que l'attente ait été facile, mais parce que ce qui est venu après elle n'aurait pas eu la même texture s'il était arrivé avant l'heure. Il existe une différence perceptible entre quelque chose de conquis avec patience et quelque chose d'obtenu par impulsion — le premier porte des couches, une histoire, une preuve ; le second ne porte que l'instant où il s'est produit.",
+        "Il est curieux de constater qu'une fois la certitude installée, elle n'a plus besoin d'être réaffirmée à chaque instant. Elle existe simplement, comme un fond stable sur lequel tout le reste peut s'appuyer sans crainte de s'effondrer. C'est cette stabilité, plus que toute euphorie initiale, qui soutient ce qui vient après — les conversations triviales, les silences confortables, les jours ordinaires qui, soudain, cessent d'avoir besoin d'intensité pour être significatifs.",
+        "C'est là le secret final, peu dit : ce qui se conquiert lentement porte un poids que l'instantané n'aura jamais. Et c'est ce poids, en fin de compte, dont on se souvient — bien après que la hâte de tout le reste a été oubliée. Car tout ce qui arrive vite a aussi tendance à repartir vite, mais ce qui est construit avec soin laisse des racines — et ce sont ces racines, non les feux d'artifice du début, qui soutiennent ce qui dure vraiment."
+      ]
+    }
+  }
+];
+
+let currentLang = 'pt';
+
+function renderIndex() {
+  const list = document.getElementById('index-list');
+  list.innerHTML = '';
+  chapters.forEach((ch, i) => {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = '#chapter-' + i;
+    const roman = (i+1);
+    a.innerHTML = '<span class="num">' + toRoman(roman) + '</span>' + ch[currentLang].title.replace(/^[IVX]+\.\s*/, '');
+    li.appendChild(a);
+    list.appendChild(li);
+  });
+}
+
+function toRoman(num) {
+  const romans = ['I','II','III','IV','V','VI','VII','VIII','IX','X'];
+  return romans[num-1];
+}
+
+function renderChapters() {
+  const container = document.getElementById('chapters');
+  container.innerHTML = '';
+  chapters.forEach((ch, i) => {
+    const section = document.createElement('section');
+    section.className = 'chapter';
+    section.id = 'chapter-' + i;
+
+    const h2 = document.createElement('h2');
+    h2.textContent = ch[currentLang].title;
+    section.appendChild(h2);
+
+    ch[currentLang].body.forEach(paragraph => {
+      const p = document.createElement('p');
+      p.textContent = paragraph;
+      section.appendChild(p);
+    });
+
+    container.appendChild(section);
+
+    if (i < chapters.length - 1) {
+      const div = document.createElement('div');
+      div.className = 'divider';
+      div.textContent = '· · ·';
+      container.appendChild(div);
+    }
+  });
+}
+
+function applyStaticText() {
+  document.querySelectorAll('[data-pt]').forEach(el => {
+    el.textContent = el.getAttribute('data-' + currentLang);
+  });
+  document.documentElement.lang = currentLang;
+}
+
+function setLang(lang) {
+  currentLang = lang;
+  document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+  document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+  applyStaticText();
+  renderIndex();
+  renderChapters();
+}
+
+renderIndex();
+renderChapters();
+</script>
+
+</body>
+</html>
